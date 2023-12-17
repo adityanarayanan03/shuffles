@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages]
+find = {}  # Scanning implicit namespaces is active by default
+
+[project]
+name = "shuffles"
+version = "0.0.1"
+authors = [
+  { name="Aditya Narayanan", email="aditya.narayanan03@gmail.com" },
+]
+description = "Evaluating how good different shuffles on a card deck are"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Linux",
+]
+dependencies = [
+  'numpy'
+]
+
+[project.optional-dependencies]
+dev = ["black", "ruff", "mypy"]
+test = ["pytest", "pytest-cov", "pytest-mock", "pdbpp"]
+
+[project.urls]
+"Homepage" = "https://github.com/UTAustin-SwarmLab/networked_robotics_benchmarking"
+"Bug Tracker" = "https://github.com/UTAustin-SwarmLab/networked_robotics_benchmarking/issues"
+
+[tool.black]
+line-length = 80
+
+[tool.ruff]
+select = [
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "UP",  # pyupgrade
+  "D",   # pydocstyle
+]
+
+ignore = ["ANN101", "ANN102"]
+
+extend-exclude = [".venv", "venv", "vscode"]
+
+[tool.ruff.pydocstyle]
+convention = "google"
